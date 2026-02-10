@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6个月健康减重与血压管理计划</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2e8b57;
+            --secondary-color: #3cb371;
+            --light-color: #f0fff0;
+            --dark-color: #1e5631;
+            --accent-color: #ff6b35;
+            --warning-color: #ffa500;
+            --danger-color: #e74c3c;
+            --text-color: #333;
+            --light-text: #666;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        body {
+            background-color: #f8fdf8;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-goal-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            border-left: 6px solid var(--accent-color);
+        }
+        
+        .section-title {
+            color: var(--dark-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f5e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .goal-item {
+            background: #f9fffb;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0f2e1;
+        }
+        
+        .goal-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .weight-progress {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .progress-bar-container {
+            height: 30px;
+            background: #e8f5e9;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            border-radius: 15px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .progress-markers {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        .marker {
+            text-align: center;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .marker.current {
+            color: var(--accent-color);
+        }
+        
+        .phase-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .phase-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phase-card.phase1 {
+            border-top-color: #3cb371;
+        }
+        
+        .phase-card.phase2 {
+            border-top-color: #2e8b57;
+        }
+        
+        .phase-card.phase3 {
+            border-top-color: #1e5631;
+        }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .phase-title {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+        }
+        
+        .phase-duration {
+            background: #e8f5e9;
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .goal-list, .diet-list, .exercise-list {
+            margin-top: 15px;
+        }
+        
+        .list-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e8f5e9;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .list-item i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        
+        .warning-note {
+            background: #fff8e1;
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .weekly-tasks {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .task-card {
+            background: #f9fffb;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e0f2e1;
+        }
+        
+        .task-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            line-height: 36px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .medication-info {
+            background: #e8f5e9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .key-point {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0f2e1;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* 新增的健康记录样式 */
+        .health-record-section {
+            margin: 40px 0;
+        }
+        
+        .record-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 25px;
+        }
+        
+        .record-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0f2e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .form-group.small-input {
+            min-width: 120px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #f1f8f1;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: #e8f5e9;
+        }
+        
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        .record-tabs {
+            display: flex;
+            border-bottom: 2px solid #e8f5e9;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .records-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 1px solid #e8f5e9;
+        }
+        
+        .record-item {
+            padding: 15px;
+            border-bottom: 1px solid #e8f5e9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .record-item:last-child {
+            border-bottom: none;
+        }
+        
+        .record-item:nth-child(even) {
+            background: #f9fffb;
+        }
+        
+        .record-item-header {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .record-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .record-item-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--light-text);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .action-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .action-btn.delete:hover {
+            color: var(--danger-color);
+        }
+        
+        .no-records {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--light-text);
+        }
+        
+        .no-records i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #e0f2e1;
+        }
+        
+        .bp-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .bp-normal {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .bp-elevated {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .bp-high {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .weight-change {
+            font-weight: bold;
+        }
+        
+        .weight-up {
+            color: var(--danger-color);
+        }
+        
+        .weight-down {
+            color: var(--primary-color);
+        }
+        
+        .weight-same {
+            color: var(--light-text);
+        }
+        
+        .chart-container {
+            height: 250px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: #f9fffb;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #e0f2e1;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .phase-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .goal-grid, .task-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .record-form {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                min-width: 100%;
+            }
+            
+            .record-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .record-item-actions {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>6个月健康减重与血压管理计划</h1>
+            <p class="subtitle">科学减重18-21kg，血压达标≤130/80，为减药创造条件</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 健康记录部分 -->
+        <section class="health-record-section">
+            <h2 class="section-title"><i class="fas fa-heartbeat"></i>健康记录追踪</h2>
+            
+            <!-- 血压记录卡片 -->
+            <div class="record-card">
+                <h3><i class="fas fa-stethoscope"></i> 血压记录</h3>
+                <p>根据建议，请每天早晚测量并记录血压</p>
+                
+                <form id="bloodPressureForm" class="record-form">
+                    <div class="form-group">
+                        <label for="bpDate">记录日期</label>
+                        <input type="date" id="bpDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bpTime">记录时间</label>
+                        <select id="bpTime" required>
+                            <option value="">选择时间</option>
+                            <option value="morning">早晨 (6:00-8:00)</option>
+                            <option value="noon">中午 (11:00-13:00)</option>
+                            <option value="evening">傍晚 (17:00-19:00)</option>
+                            <option value="night">睡前 (21:00-23:00)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group small-input">
+                        <label for="systolic">收缩压 (高压)</label>
+                        <input type="number" id="systolic" min="70" max="250" placeholder="120" required>
+                    </div>
+                    
+                    <div class="form-group small-input">
+                        <label for="diastolic">舒张压 (低压)</label>
+                        <input type="number" id="diastolic" min="40" max="150" placeholder="80" required>
+                    </div>
+                    
+                    <div class="form-group small-input">
+                        <label for="heartRate">心率</label>
+                        <input type="number" id="heartRate" min="40" max="200" placeholder="75">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bpNotes">备注 (可选)</label>
+                        <input type="text" id="bpNotes" placeholder="记录特殊情况，如运动后、情绪变化等">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> 保存血压记录
+                        </button>
+                        <button type="button" id="viewBpHistory" class="btn btn-secondary">
+                            <i class="fas fa-history"></i> 查看历史记录
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="records-list" id="bpHistoryContainer" style="display: none;">
+                    <!-- 血压历史记录将动态插入这里 -->
+                </div>
+            </div>
+            
+            <!-- 体重记录卡片 -->
+            <div class="record-card">
+                <h3><i class="fas fa-weight-scale"></i> 体重记录</h3>
+                <p>建议每周记录一次体重，避免每天测量造成焦虑</p>
+                
+                <form id="weightForm" class="record-form">
+                    <div class="form-group">
+                        <label for="weightDate">记录日期</label>
+                        <input type="date" id="weightDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weightTime">记录时间</label>
+                        <select id="weightTime" required>
+                            <option value="">选择时间</option>
+                            <option value="morning">早晨空腹</option>
+                            <option value="evening">晚上睡前</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weight">体重 (斤)</label>
+                        <input type="number" id="weight" min="100" max="300" step="0.1" placeholder="216.0" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="waist">腰围 (cm，可选)</label>
+                        <input type="number" id="waist" min="50" max="200" step="0.5" placeholder="105.0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weightNotes">备注 (可选)</label>
+                        <input type="text" id="weightNotes" placeholder="记录特殊情况，如经期、大餐后等">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> 保存体重记录
+                        </button>
+                        <button type="button" id="viewWeightHistory" class="btn btn-secondary">
+                            <i class="fas fa-history"></i> 查看历史记录
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="records-list" id="weightHistoryContainer" style="display: none;">
+                    <!-- 体重历史记录将动态插入这里 -->
+                </div>
+            </div>
+            
+            <!-- 统计概览 -->
+            <div class="record-card">
+                <h3><i class="fas fa-chart-bar"></i> 健康数据概览</h3>
+                
+                <div class="record-tabs">
+                    <button class="tab-btn active" data-tab="stats">统计概览</button>
+                    <button class="tab-btn" data-tab="trends">趋势图表</button>
+                </div>
+                
+                <div id="statsTab" class="tab-content active">
+                    <div class="stats-summary">
+                        <div class="stat-card">
+                            <div class="stat-label">当前体重</div>
+                            <div class="stat-value" id="currentWeight">216.0</div>
+                            <div class="stat-label">斤</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-label">已减体重</div>
+                            <div class="stat-value" id="totalLost">0.0</div>
+                            <div class="stat-label">斤</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-label">平均血压</div>
+                            <div class="stat-value" id="avgBp">-/ -</div>
+                            <div class="stat-label">收缩压/舒张压</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-label">达标率</div>
+                            <div class="stat-value" id="bpNormalRate">0%</div>
+                            <div class="stat-label">血压正常记录</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4>近期血压趋势</h4>
+                        <p id="bpTrendText">暂无足够数据</p>
+                    </div>
+                </div>
+                
+                <div id="trendsTab" class="tab-content">
+                    <div class="chart-container">
+                        <canvas id="healthChart"></canvas>
+                    </div>
+                    <p style="text-align: center; margin-top: 10px; color: var(--light-text);">
+                        <i class="fas fa-info-circle"></i> 图表展示最近14天的血压和体重变化趋势
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 总体目标部分 -->
+        <section class="main-goal-card">
+            <h2 class="section-title"><i class="fas fa-bullseye"></i>总体目标与节奏</h2>
+            <p style="margin-bottom: 20px;">先把大盘定住，制定6个月核心目标</p>
+            
+            <div class="goal-grid">
+                <div class="goal-item">
+                    <h3><i class="fas fa-weight-scale"></i> 体重目标</h3>
+                    <p><strong>216斤 → 175-180斤</strong><br>减重18-21kg</p>
+                </div>
+                <div class="goal-item">
+                    <h3><i class="fas fa-heart-pulse"></i> 血压目标</h3>
+                    <p><strong>3个月：</strong>≤140/90<br>
+                       <strong>6个月：</strong>≤130/80<br>
+                       (多次静息测量)
+                    </p>
+                </div>
+                <div class="goal-item">
+                    <h3><i class="fas fa-ruler"></i> 腰围目标</h3>
+                    <p>下降 ≥15cm</p>
+                </div>
+                <div class="goal-item">
+                    <h3><i class="fas fa-prescription-bottle-medical"></i> 用药原则</h3>
+                    <p>不自行停药，为第4-6个月评估减药创造条件</p>
+                </div>
+            </div>
+            
+            <div class="warning-note">
+                <p><strong>⚠️ 重要提醒：</strong>160斤是"最终目标"，不建议半年内直接冲到160，对血压反而不友好。</p>
+            </div>
+        </section>
+        
+        <!-- 体重进度条 -->
+        <section class="weight-progress">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i>体重变化进度</h2>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="weightProgress"></div>
+            </div>
+            <div class="progress-markers">
+                <div class="marker current">216斤<br>起始</div>
+                <div class="marker">206斤<br>1个月</div>
+                <div class="marker">190斤<br>3个月</div>
+                <div class="marker">180斤<br>6个月目标</div>
+                <div class="marker">160斤<br>最终目标</div>
+            </div>
+        </section>
+        
+        <!-- 阶段拆解 -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-map-signs"></i>阶段拆解 - 成功关键</h2>
+            <div class="phase-container">
+                <!-- 阶段1 -->
+                <div class="phase-card phase1">
+                    <div class="phase-header">
+                        <h3 class="phase-title">第1阶段：适应期</h3>
+                        <span class="phase-duration">第1-4周</span>
+                    </div>
+                    <p><strong>目标：</strong>让身体"接受变瘦"，先降血压</p>
+                    
+                    <div class="goal-list">
+                        <h4><i class="fas fa-trophy"></i> 本阶段目标</h4>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 减重 3-4kg</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 血压下降 10-15 mmHg</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 不追求快，只求稳</div>
+                    </div>
+                    
+                    <div class="diet-list">
+                        <h4><i class="fas fa-utensils"></i> 饮食重点：控盐+控总量</h4>
+                        <div class="list-item"><i class="fas fa-apple-alt"></i> 热量：1800-1900 kcal/天</div>
+                        <div class="list-item"><i class="fas fa-wine-bottle"></i> 盐：≤5g/天</div>
+                        <div class="list-item"><i class="fas fa-drumstick-bite"></i> 蛋白质：≥120g/天</div>
+                        <p style="margin-top: 10px; font-weight: bold;">禁忌：汤泡饭、卤味、外卖、夜宵、含糖饮料、酒精</p>
+                    </div>
+                    
+                    <div class="exercise-list">
+                        <h4><i class="fas fa-running"></i> 运动：降压为主，不求燃脂</h4>
+                        <div class="list-item"><i class="fas fa-walking"></i> 每天快走30-40分钟</div>
+                        <div class="list-item"><i class="fas fa-heartbeat"></i> 心率：微喘但能说话</div>
+                        <div class="list-item"><i class="fas fa-ban"></i> 暂不做高强度</div>
+                    </div>
+                </div>
+                
+                <!-- 阶段2 -->
+                <div class="phase-card phase2">
+                    <div class="phase-header">
+                        <h3 class="phase-title">第2阶段：减脂主力期</h3>
+                        <span class="phase-duration">第2-3个月</span>
+                    </div>
+                    <p><strong>目标：</strong>快速但安全地下降体重和血压</p>
+                    
+                    <div class="goal-list">
+                        <h4><i class="fas fa-trophy"></i> 本阶段目标</h4>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 再减 7-9kg</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 体重接近190斤</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 血压进入 &lt;140/90</div>
+                    </div>
+                    
+                    <div class="diet-list">
+                        <h4><i class="fas fa-utensils"></i> 饮食升级</h4>
+                        <div class="list-item"><i class="fas fa-apple-alt"></i> 热量：1600-1700 kcal</div>
+                        <div class="list-item"><i class="fas fa-bread-slice"></i> 主食只留午餐</div>
+                        <div class="list-item"><i class="fas fa-utensil-spoon"></i> 晚餐高蛋白+蔬菜</div>
+                        <div class="list-item"><i class="fas fa-calendar-week"></i> 每周允许1顿"可控放松餐"</div>
+                    </div>
+                    
+                    <div class="exercise-list">
+                        <h4><i class="fas fa-running"></i> 运动组合（开始塑形）</h4>
+                        <div class="list-item"><i class="fas fa-walking"></i> 有氧：快走/骑车 40-50分钟 × 5天/周</div>
+                        <div class="list-item"><i class="fas fa-dumbbell"></i> 力量：深蹲、俯卧撑、划船</div>
+                        <div class="list-item"><i class="fas fa-calendar-alt"></i> 每周2-3次，每次20分钟</div>
+                        <p style="margin-top: 10px; font-style: italic;">力量训练 = 防止基础代谢下降 = 后期不反弹</p>
+                    </div>
+                </div>
+                
+                <!-- 阶段3 -->
+                <div class="phase-card phase3">
+                    <div class="phase-header">
+                        <h3 class="phase-title">第3阶段：稳定压降期</h3>
+                        <span class="phase-duration">第4-6个月</span>
+                    </div>
+                    <p><strong>目标：</strong>逼近停药评估线</p>
+                    
+                    <div class="goal-list">
+                        <h4><i class="fas fa-trophy"></i> 本阶段目标</h4>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 再减 6-8kg</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 体重175-180斤</div>
+                        <div class="list-item"><i class="fas fa-check-circle"></i> 血压稳定在130/80左右</div>
+                    </div>
+                    
+                    <div class="diet-list">
+                        <h4><i class="fas fa-utensils"></i> 饮食（长期模式）</h4>
+                        <div class="list-item"><i class="fas fa-apple-alt"></i> 热量：1500-1600 kcal</div>
+                        <div class="list-item"><i class="fas fa-bread-slice"></i> 碳水：低GI为主</div>
+                        <div class="list-item"><i class="fas fa-wine-bottle"></i> 盐：继续 ≤5g</div>
+                        <p style="margin-top: 10px; font-weight: bold;">你这阶段吃的，就是你未来5-10年该吃的方式。</p>
+                    </div>
+                    
+                    <div class="exercise-list">
+                        <h4><i class="fas fa-running"></i> 运动（变成习惯）</h4>
+                        <div class="list-item"><i class="fas fa-walking"></i> 有氧：每周 ≥200分钟</div>
+                        <div class="list-item"><i class="fas fa-dumbbell"></i> 力量：维持2-3次/周</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 每周必做 -->
+        <section class="weekly-tasks">
+            <h2 class="section-title"><i class="fas fa-calendar-check"></i>每周必做3件事（比吃什么更重要）</h2>
+            <div class="task-grid">
+                <div class="task-card">
+                    <div class="task-number">1</div>
+                    <h3>固定时间量血压</h3>
+                    <p>早起 & 睡前测量，记录变化</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-number">2</div>
+                    <h3>每周称重一次</h3>
+                    <p>不要天天称，避免焦虑</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-number">3</div>
+                    <h3>记录盐摄入</h3>
+                    <p>外卖 = 超标，需特别注意</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 减药评估 -->
+        <section class="medication-info">
+            <h2 class="section-title"><i class="fas fa-prescription-bottle-alt"></i>什么时候可以"考虑减药"？</h2>
+            <p><strong>最快也是第4个月以后</strong></p>
+            
+            <div class="key-point">
+                <h3><i class="fas fa-clipboard-check"></i> 前提条件</h3>
+                <div class="list-item"><i class="fas fa-heartbeat"></i> 静息血压多次 &lt;130/80</div>
+                <div class="list-item"><i class="fas fa-dizzy"></i> 无头晕、心悸等症状</div>
+                <div class="list-item"><i class="fas fa-user-md"></i> 医生评估同意</div>
+            </div>
+            
+            <p style="margin-top: 20px; font-weight: bold; font-size: 1.1rem;">
+                <i class="fas fa-arrow-right"></i> 顺序是：减量 → 观察 → 再减
+            </p>
+        </section>
+        
+        <footer>
+            <p>健康减重与血压管理计划 | 科学规划，稳步实现目标</p>
+            <p>注：本计划为示例，具体执行请咨询专业医生</p>
+        </footer>
+    </div>
+
+    <!-- 引入Chart.js用于绘制图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // 初始化健康记录数据存储
+        let healthData = {
+            bloodPressure: [],
+            weight: []
+        };
+
+        // 从本地存储加载数据
+        function loadHealthData() {
+            const savedData = localStorage.getItem('healthData');
+            if (savedData) {
+                healthData = JSON.parse(savedData);
+                // 确保数组存在
+                if (!healthData.bloodPressure) healthData.bloodPressure = [];
+                if (!healthData.weight) healthData.weight = [];
+            }
+            updateProgressBar();
+            updateStats();
+        }
+
+        // 保存数据到本地存储
+        function saveHealthData() {
+            localStorage.setItem('healthData', JSON.stringify(healthData));
+            updateProgressBar();
+            updateStats();
+            updateChart();
+        }
+
+        // 获取血压状态分类
+        function getBpStatus(systolic, diastolic) {
+            if (systolic < 120 && diastolic < 80) {
+                return { status: 'normal', text: '正常', class: 'bp-normal' };
+            } else if ((systolic >= 120 && systolic < 130) && diastolic < 80) {
+                return { status: 'elevated', text: '偏高', class: 'bp-elevated' };
+            } else if ((systolic >= 130 && systolic < 140) || (diastolic >= 80 && diastolic < 90)) {
+                return { status: 'high1', text: '高血压1级', class: 'bp-high' };
+            } else if (systolic >= 140 || diastolic >= 90) {
+                return { status: 'high2', text: '高血压2级', class: 'bp-high' };
+            }
+            return { status: 'unknown', text: '未知', class: '' };
+        }
+
+        // 获取时间显示文本
+        function getTimeText(timeValue) {
+            const timeMap = {
+                'morning': '早晨',
+                'noon': '中午',
+                'evening': '傍晚',
+                'night': '睡前'
+            };
+            return timeMap[timeValue] || timeValue;
+        }
+
+        // 格式化日期显示
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            const weekDay = weekDays[date.getDay()];
+            return `${month}月${day}日 周${weekDay}`;
+        }
+
+        // 血压记录表单提交
+        document.getElementById('bloodPressureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const bpRecord = {
+                id: Date.now(),
+                date: document.getElementById('bpDate').value,
+                time: document.getElementById('bpTime').value,
+                systolic: parseInt(document.getElementById('systolic').value),
+                diastolic: parseInt(document.getElementById('diastolic').value),
+                heartRate: document.getElementById('heartRate').value ? parseInt(document.getElementById('heartRate').value) : null,
+                notes: document.getElementById('bpNotes').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // 验证数据
+            if (bpRecord.systolic <= bpRecord.diastolic) {
+                alert('收缩压（高压）应大于舒张压（低压）');
+                return;
+            }
+            
+            healthData.bloodPressure.unshift(bpRecord);
+            saveHealthData();
+            
+            // 重置表单
+            document.getElementById('bloodPressureForm').reset();
+            document.getElementById('bpDate').valueAsDate = new Date();
+            
+            // 显示成功提示
+            showNotification('血压记录保存成功！', 'success');
+            
+            // 如果有历史记录显示，更新显示
+            if (document.getElementById('bpHistoryContainer').style.display !== 'none') {
+                displayBpHistory();
+            }
+        });
+
+        // 体重记录表单提交
+        document.getElementById('weightForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const weightRecord = {
+                id: Date.now(),
+                date: document.getElementById('weightDate').value,
+                time: document.getElementById('weightTime').value,
+                weight: parseFloat(document.getElementById('weight').value),
+                waist: document.getElementById('waist').value ? parseFloat(document.getElementById('waist').value) : null,
+                notes: document.getElementById('weightNotes').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            healthData.weight.unshift(weightRecord);
+            saveHealthData();
+            
+            // 重置表单
+            document.getElementById('weightForm').reset();
+            document.getElementById('weightDate').valueAsDate = new Date();
+            
+            // 显示成功提示
+            showNotification('体重记录保存成功！', 'success');
+            
+            // 如果有历史记录显示，更新显示
+            if (document.getElementById('weightHistoryContainer').style.display !== 'none') {
+                displayWeightHistory();
+            }
+        });
+
+        // 查看血压历史记录
+        document.getElementById('viewBpHistory').addEventListener('click', function() {
+            const container = document.getElementById('bpHistoryContainer');
+            if (container.style.display === 'none') {
+                displayBpHistory();
+                container.style.display = 'block';
+                this.innerHTML = '<i class="fas fa-times"></i> 关闭历史记录';
+            } else {
+                container.style.display = 'none';
+                this.innerHTML = '<i class="fas fa-history"></i> 查看历史记录';
+            }
+        });
+
+        // 查看体重历史记录
+        document.getElementById('viewWeightHistory').addEventListener('click', function() {
+            const container = document.getElementById('weightHistoryContainer');
+            if (container.style.display === 'none') {
+                displayWeightHistory();
+                container.style.display = 'block';
+                this.innerHTML = '<i class="fas fa-times"></i> 关闭历史记录';
+            } else {
+                container.style.display = 'none';
+                this.innerHTML = '<i class="fas fa-history"></i> 查看历史记录';
+            }
+        });
+
+        // 显示血压历史记录
+        function displayBpHistory() {
+            const container = document.getElementById('bpHistoryContainer');
+            
+            if (healthData.bloodPressure.length === 0) {
+                container.innerHTML = `
+                    <div class="no-records">
+                        <i class="fas fa-heartbeat"></i>
+                        <p>暂无血压记录</p>
+                        <p>请添加第一条血压记录</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            healthData.bloodPressure.forEach(record => {
+                const bpStatus = getBpStatus(record.systolic, record.diastolic);
+                const timeText = getTimeText(record.time);
+                
+                html += `
+                    <div class="record-item" data-id="${record.id}">
+                        <div class="record-item-details">
+                            <div class="record-item-header">
+                                ${formatDate(record.date)} - ${timeText}
+                            </div>
+                            <div>
+                                <strong>${record.systolic}/${record.diastolic} mmHg</strong>
+                                <span class="bp-status ${bpStatus.class}">${bpStatus.text}</span>
+                                ${record.heartRate ? ` | 心率: ${record.heartRate} bpm` : ''}
+                            </div>
+                            ${record.notes ? `<div><small>备注: ${record.notes}</small></div>` : ''}
+                        </div>
+                        <div class="record-item-actions">
+                            <button class="action-btn delete" onclick="deleteBpRecord(${record.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // 显示体重历史记录
+        function displayWeightHistory() {
+            const container = document.getElementById('weightHistoryContainer');
+            
+            if (healthData.weight.length === 0) {
+                container.innerHTML = `
+                    <div class="no-records">
+                        <i class="fas fa-weight-scale"></i>
+                        <p>暂无体重记录</p>
+                        <p>请添加第一条体重记录</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            // 按日期排序，最新的在前面
+            const sortedWeight = [...healthData.weight].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            sortedWeight.forEach((record, index) => {
+                const timeText = record.time === 'morning' ? '早晨空腹' : '晚上睡前';
+                let changeText = '';
+                let changeClass = '';
+                
+                // 计算与上一条记录的差值
+                if (index < sortedWeight.length - 1) {
+                    const prevRecord = sortedWeight[index + 1];
+                    const change = record.weight - prevRecord.weight;
+                    
+                    if (change > 0) {
+                        changeText = `↑ ${change.toFixed(1)}斤`;
+                        changeClass = 'weight-up';
+                    } else if (change < 0) {
+                        changeText = `↓ ${Math.abs(change).toFixed(1)}斤`;
+                        changeClass = 'weight-down';
+                    } else {
+                        changeText = `→ 持平`;
+                        changeClass = 'weight-same';
+                    }
+                }
+                
+                html += `
+                    <div class="record-item" data-id="${record.id}">
+                        <div class="record-item-details">
+                            <div class="record-item-header">
+                                ${formatDate(record.date)} - ${timeText}
+                            </div>
+                            <div>
+                                <strong>${record.weight} 斤</strong>
+                                ${changeText ? `<span class="weight-change ${changeClass}">${changeText}</span>` : ''}
+                                ${record.waist ? ` | 腰围: ${record.waist} cm` : ''}
+                            </div>
+                            ${record.notes ? `<div><small>备注: ${record.notes}</small></div>` : ''}
+                        </div>
+                        <div class="record-item-actions">
+                            <button class="action-btn delete" onclick="deleteWeightRecord(${record.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // 删除血压记录
+        function deleteBpRecord(id) {
+            if (confirm('确定要删除这条血压记录吗？')) {
+                healthData.bloodPressure = healthData.bloodPressure.filter(record => record.id !== id);
+                saveHealthData();
+                displayBpHistory();
+                showNotification('血压记录已删除', 'warning');
+            }
+        }
+
+        // 删除体重记录
+        function deleteWeightRecord(id) {
+            if (confirm('确定要删除这条体重记录吗？')) {
+                healthData.weight = healthData.weight.filter(record => record.id !== id);
+                saveHealthData();
+                displayWeightHistory();
+                showNotification('体重记录已删除', 'warning');
+            }
+        }
+
+        // 更新进度条
+        function updateProgressBar() {
+            const progressBar = document.getElementById('weightProgress');
+            if (healthData.weight.length === 0) {
+                progressBar.style.width = '0%';
+                return;
+            }
+            
+            // 获取最新体重
+            const latestWeight = healthData.weight.reduce((latest, record) => {
+                return new Date(record.date) > new Date(latest.date) ? record : latest;
+            }, healthData.weight[0]);
+            
+            const currentWeight = latestWeight.weight;
+            const startWeight = 216;
+            const targetWeight = 180;
+            
+            // 计算进度百分比
+            const weightLost = startWeight - currentWeight;
+            const totalToLose = startWeight - targetWeight;
+            const progress = Math.min(100, Math.max(0, (weightLost / totalToLose) * 100));
+            
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // 更新统计数据
+        function updateStats() {
+            // 当前体重
+            if (healthData.weight.length > 0) {
+                const latestWeight = healthData.weight.reduce((latest, record) => {
+                    return new Date(record.date) > new Date(latest.date) ? record : latest;
+                }, healthData.weight[0]);
+                
+                document.getElementById('currentWeight').textContent = latestWeight.weight.toFixed(1);
+                
+                // 已减体重
+                const weightLost = 216 - latestWeight.weight;
+                document.getElementById('totalLost').textContent = weightLost > 0 ? weightLost.toFixed(1) : '0.0';
+            }
+            
+            // 血压统计
+            if (healthData.bloodPressure.length > 0) {
+                const systolicSum = healthData.bloodPressure.reduce((sum, record) => sum + record.systolic, 0);
+                const diastolicSum = healthData.bloodPressure.reduce((sum, record) => sum + record.diastolic, 0);
+                const avgSystolic = Math.round(systolicSum / healthData.bloodPressure.length);
+                const avgDiastolic = Math.round(diastolicSum / healthData.bloodPressure.length);
+                
+                document.getElementById('avgBp').textContent = `${avgSystolic}/${avgDiastolic}`;
+                
+                // 血压正常率
+                const normalCount = healthData.bloodPressure.filter(record => {
+                    const status = getBpStatus(record.systolic, record.diastolic);
+                    return status.status === 'normal';
+                }).length;
+                
+                const normalRate = Math.round((normalCount / healthData.bloodPressure.length) * 100);
+                document.getElementById('bpNormalRate').textContent = `${normalRate}%`;
+                
+                // 血压趋势
+                if (healthData.bloodPressure.length >= 2) {
+                    const recentRecords = healthData.bloodPressure.slice(0, 5); // 最近5条记录
+                    const firstAvg = (recentRecords[recentRecords.length-1].systolic + recentRecords[recentRecords.length-1].diastolic) / 2;
+                    const lastAvg = (recentRecords[0].systolic + recentRecords[0].diastolic) / 2;
+                    const trend = lastAvg - firstAvg;
+                    
+                    let trendText = '';
+                    if (trend < -5) {
+                        trendText = '血压呈明显下降趋势，继续保持！';
+                    } else if (trend < 0) {
+                        trendText = '血压略有下降，效果良好';
+                    } else if (trend === 0) {
+                        trendText = '血压保持稳定';
+                    } else if (trend <= 5) {
+                        trendText = '血压略有上升，注意监测';
+                    } else {
+                        trendText = '血压上升较明显，请关注生活调整';
+                    }
+                    
+                    document.getElementById('bpTrendText').textContent = trendText;
+                }
+            }
+        }
+
+        // 图表实例
+        let healthChart = null;
+
+        // 更新图表
+        function updateChart() {
+            const ctx = document.getElementById('healthChart').getContext('2d');
+            
+            // 准备图表数据
+            const recentBp = healthData.bloodPressure.slice(0, 14).reverse();
+            const recentWeight = healthData.weight.slice(0, 14).reverse();
+            
+            const labels = recentBp.map(record => {
+                const date = new Date(record.date);
+                return `${date.getMonth()+1}/${date.getDate()}`;
+            });
+            
+            // 如果血压数据为空，使用体重数据的日期
+            if (labels.length === 0 && recentWeight.length > 0) {
+                recentWeight.forEach(record => {
+                    const date = new Date(record.date);
+                    labels.push(`${date.getMonth()+1}/${date.getDate()}`);
+                });
+            }
+            
+            const systolicData = recentBp.map(record => record.systolic);
+            const diastolicData = recentBp.map(record => record.diastolic);
+            const weightData = recentWeight.map(record => record.weight);
+            
+            // 销毁之前的图表
+            if (healthChart) {
+                healthChart.destroy();
+            }
+            
+            // 创建新图表
+            healthChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels.length > 0 ? labels : ['暂无数据'],
+                    datasets: [
+                        {
+                            label: '收缩压 (高压)',
+                            data: systolicData.length > 0 ? systolicData : [0],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '舒张压 (低压)',
+                            data: diastolicData.length > 0 ? diastolicData : [0],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: '体重 (斤)',
+                            data: weightData.length > 0 ? weightData : [0],
+                            borderColor: '#2e8b57',
+                            backgroundColor: 'rgba(46, 139, 87, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.3,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: '血压 (mmHg)'
+                            },
+                            min: 60,
+                            max: 180,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: '体重 (斤)'
+                            },
+                            min: 160,
+                            max: 220,
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += context.parsed.y;
+                                    if (context.dataset.label.includes('血压')) {
+                                        label += ' mmHg';
+                                    } else if (context.dataset.label.includes('体重')) {
+                                        label += ' 斤';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // 显示通知
+        function showNotification(message, type) {
+            // 移除现有的通知
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // 创建新通知
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${type === 'success' ? '#2e8b57' : '#ffa500'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            // 添加动画
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // 3秒后自动移除
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // 标签切换功能
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // 更新按钮状态
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 显示对应内容
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(`${tabId}Tab`).classList.add('active');
+            });
+        });
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置默认日期为今天
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('bpDate').value = today;
+            document.getElementById('weightDate').value = today;
+            
+            // 加载数据
+            loadHealthData();
+            
+            // 初始化图表
+            updateChart();
+            
+            // 体重进度条动画
+            const progressBar = document.getElementById('weightProgress');
+            setTimeout(() => {
+                if (healthData.weight.length === 0) {
+                    progressBar.style.width = '0%';
+                }
+            }, 300);
+            
+            // 添加卡片悬停效果
+            const cards = document.querySelectorAll('.phase-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'var(--card-shadow)';
+                });
+            });
+            
+            // 添加一些示例数据（首次使用时）
+            if (healthData.bloodPressure.length === 0 && healthData.weight.length === 0) {
+                // 添加示例血压记录
+                const exampleBp = [
+                    { id: 1, date: today, time: 'morning', systolic: 145, diastolic: 92, heartRate: 78, notes: '早晨空腹测量', timestamp: new Date().toISOString() },
+                    { id: 2, date: today, time: 'night', systolic: 138, diastolic: 88, heartRate: 72, notes: '睡前测量', timestamp: new Date().toISOString() }
+                ];
+                
+                // 添加示例体重记录
+                const exampleWeight = [
+                    { id: 1, date: today, time: 'morning', weight: 216.0, waist: 108.5, notes: '初始记录', timestamp: new Date().toISOString() }
+                ];
+                
+                healthData.bloodPressure.push(...exampleBp);
+                healthData.weight.push(...exampleWeight);
+                saveHealthData();
+            }
+        });
+    </script>
+</body>
+</html>
